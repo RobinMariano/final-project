@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
+    <ion-title id="header">
+      ADMIN
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,7 +14,33 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Register Recipe</ion-title>
+      </ion-toolbar>
+      <ion-toolbar>
+          
+        <ion-list>
+          <ion-item>
+            <ion-textarea label="Recipe Name:" placeholder=""></ion-textarea>
+          </ion-item>
+          <ion-item>
+            <ion-textarea label="Description:" placeholder=""></ion-textarea>
+          </ion-item>
+          <ion-item>
+            <ion-textarea [readonly]="true" label="Ingridients:" ></ion-textarea>
+            <ion-searchbar id="searchbar"placeholder="Search ingridients here.."></ion-searchbar>
+          </ion-item>
+          <ion-item>
+            <ion-textarea label="List of Ingridients added:" placeholder=""></ion-textarea>
+          </ion-item>
+          <ion-item>
+            <ion-textarea label="Cooking Procedure:" placeholder=""></ion-textarea>
+          </ion-item>
+    
+        </ion-list>
+      </ion-toolbar>
+    </ion-header>
   </div>
+
 </ion-content>
