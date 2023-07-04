@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title id="header">
-      ADMIN
+      ADMIN MODE
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -18,29 +18,44 @@
       <ion-toolbar>
         <ion-title>Register Recipe</ion-title>
       </ion-toolbar>
-      <ion-toolbar>
-          
-        <ion-list>
-          <ion-item>
-            <ion-textarea label="Recipe Name:" placeholder=""></ion-textarea>
-          </ion-item>
-          <ion-item>
-            <ion-textarea label="Description:" placeholder=""></ion-textarea>
-          </ion-item>
-          <ion-item>
-            <ion-textarea [readonly]="true" label="Ingridients:" ></ion-textarea>
-            <ion-searchbar id="searchbar"placeholder="Search ingridients here.."></ion-searchbar>
-          </ion-item>
-          <ion-item>
-            <ion-textarea label="List of Ingridients added:" placeholder=""></ion-textarea>
-          </ion-item>
-          <ion-item>
-            <ion-textarea label="Cooking Procedure:" placeholder=""></ion-textarea>
-          </ion-item>
-    
-        </ion-list>
-      </ion-toolbar>
     </ion-header>
-  </div>
 
+      <ion-list>
+        <ion-item>
+          <ion-label>Recipe Name:</ion-label>
+          <ion-textarea placeholder=""></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label>Description:</ion-label>
+          <ion-textarea placeholder=""></ion-textarea>
+        </ion-item>
+      </ion-list>
+                                      <!-- SEARCH BAR AREA-->
+<ion-searchbar placeholder="Search ingredients here.." id="searchbar" class="search-bar" 
+  (ionInput)="handleInput($event)">
+</ion-searchbar>
+
+<ion-list *ngIf="showResults" class="search-results">
+  <ion-item *ngFor="let result of results">
+    <ion-label>{{ result }}</ion-label>
+    <ion-button slot="end" (click)="selectResult($event, result)">Select</ion-button>
+  </ion-item>
+</ion-list>
+
+<ion-list>
+  <ion-item *ngFor="let ingredient of selectedIngredients">
+    <ion-label>{{ ingredient }}</ion-label>
+    <ion-button slot="end" (click)="deleteIngredient(ingredient)">Delete</ion-button>
+  </ion-item>
+</ion-list>
+
+<ion-item>
+  <ion-label>Cooking Procedure:</ion-label>
+  <ion-textarea placeholder=""></ion-textarea>
+</ion-item>
+
+<ion-item>
+  <ion-button> SAVE </ion-button>
+</ion-item>
+  </div>  
 </ion-content>
